@@ -1,0 +1,2 @@
+zip -9 -r Game.love .
+/Applications/love.app/Contents/MacOS/love Game.love
