@@ -1,15 +1,15 @@
 local player = require "player"
+local scene = require "scene"
 
 function love.load()
    love.window.setMode(1200, 400, {})
-   scene = love.graphics.newImage("forest-background.jpg");
+   scene.load()
    player.load() 
 end
 
 function love.draw()
-    love.graphics.draw(scene, love.graphics:getWidth() / 2 - scene:getWidth()/2,
-        love.graphics:getHeight() / 2 - scene:getHeight() / 2) 
-    player.draw()
+   scene.draw()
+   player.draw()
 end
 
 function love.keypressed(key)

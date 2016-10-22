@@ -13,7 +13,7 @@ function player.load()
 end
 
 function player.draw() 
-	love.graphics.draw(image, firstQuad, imgx, imgy, rotation, 0.3, 0.3, width/4, height/2)
+	love.graphics.draw(image, firstQuad, imgx, imgy, rotation, 0.5, 0.5, width/4, height/2)
 end
 
 function player.moveRight()
