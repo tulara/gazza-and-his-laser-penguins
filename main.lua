@@ -1,16 +1,22 @@
 
 
 function love.load()
-	imgx = 100
-	imgy = 100
-	love.graphics.setBackgroundColor(102, 204, 255)
+	imgx = 300
+	imgy = 300
+   rotation = 0
+   rotationSpeed = (3.14/180) -- radian = degree of radius length of arc around circle.
+	rotationDirection = 1
+   love.graphics.setBackgroundColor(102, 204, 255)
 	penguin = love.graphics.newImage("penguin.png")
+   
 
 	width = penguin:getWidth()
 	height = penguin:getHeight()
+   subPenguin = love.graphics.newQuad(0, 0, width/2, height, width, height)
 end
+
 function love.draw()
-    love.graphics.draw(penguin, imgx, imgy)
+    love.graphics.draw(penguin, subPenguin, imgx, imgy, rotation, 1, 1, width/4, height/2)
 end
 
 function love.mousepressed(x, y, button, istouch)
@@ -26,4 +32,13 @@ function love.keypressed(key)
    elseif key == 'o' then
       imgx = imgx - 5
    end
+end
+
+
+-- dt*rotation_speed for smoother animation based on varying update times.
+function love.update(dt)
+   rotation = rotation + (rotationSpeed * rotationDirection)
+   if rotation > math.rad(5) or rotation < (-1 * math.rad(5)) then
+      rotationDirection = rotationDirection * -1
+   end 
 end
