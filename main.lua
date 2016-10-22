@@ -7,6 +7,9 @@ function love.load()
    rotationSpeed = (3.14/180) -- radian = degree of radius length of arc around circle.
 	rotationDirection = 1
    love.graphics.setBackgroundColor(102, 204, 255)
+   love.window.setMode(1200, 400,{})
+
+   scene = love.graphics.newImage("forest-background.jpg");
 	penguin = love.graphics.newImage("penguin.png")
    
 
@@ -16,7 +19,9 @@ function love.load()
 end
 
 function love.draw()
-    love.graphics.draw(penguin, subPenguin, imgx, imgy, rotation, 1, 1, width/4, height/2)
+    love.graphics.draw(scene, love.graphics:getWidth() / 2 - scene:getWidth()/2,
+        love.graphics:getHeight() / 2 - scene:getHeight() / 2) 
+    love.graphics.draw(penguin, subPenguin, imgx, imgy, rotation, 0.3, 0.3, width/4, height/2)
 end
 
 function love.mousepressed(x, y, button, istouch)
