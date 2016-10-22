@@ -22,5 +22,6 @@ end
 
 -- dt*rotation_speed for smoother animation based on varying update times.
 function love.update(dt)
+   scene.scroll()
    player.wiggle()
 end

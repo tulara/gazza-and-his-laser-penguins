@@ -1,5 +1,15 @@
 local player = {}
 
+local imgx
+local imgy
+local rotation
+local rotationSpeed
+local rotationDirection
+local image
+local width
+local height
+local firstQuad
+
 function player.load() 
     imgx = 300
     imgy = 300
